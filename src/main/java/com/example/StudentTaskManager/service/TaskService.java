@@ -1,0 +1,40 @@
+package com.example.StudentTaskManager.service;
+
+import com.example.StudentTaskManager.model.Task;
+import jakarta.annotation.PostConstruct;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class TaskService {
+
+    private List<Task> tasks = new ArrayList<>();
+
+    @PostConstruct
+    public void init(){
+
+        tasks.add(new Task(
+                1L,
+                "Finish Spring project",
+                "Complete MVC application",
+                false
+        ));
+
+        tasks.add(new Task(
+           2L,
+           "Study Thymeleaf",
+           "Learn Template engine basics",
+           true
+        ));
+    }
+
+    public List<Task> getAallTasks(){
+        return tasks;
+    }
+
+    public void addTask(Task task){
+        tasks.add(task);
+    }
+}

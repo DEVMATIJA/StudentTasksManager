@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tasks</title>
+</head>
+<body>
+
+<h1>Task List</h1>
+
+<table border="1">
+
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Completed</th>
+    </tr>
+
+    <tr th:each="task : ${tasks}">
+
+        <td th:text="${task.id}"></td>
+
+        <td th:text="${task.title}"></td>
+
+        <td th:text="${task.description}"></td>
+
+        <td th:text="${task.completed}"></td>
+
+    </tr>
+
+</table>
+
+</body>
+</html>
