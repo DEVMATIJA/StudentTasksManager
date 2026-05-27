@@ -37,4 +37,16 @@ public class TaskService {
     public void addTask(Task task){
         tasks.add(task);
     }
+
+    public void markAsCompleted(Long id){
+        for (Task task : tasks){
+            if(task.getId().equals(id)){
+                task.setCompleted(true);
+                break;
+            }
+        }
+    }
+    public void deleteTask(Long id){
+        tasks.removeIf(task -> task.getId().equals(id));
+    }
 }
