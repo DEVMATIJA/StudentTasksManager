@@ -49,4 +49,34 @@ public class TaskService {
     public void deleteTask(Long id){
         tasks.removeIf(task -> task.getId().equals(id));
     }
+
+    public int getCompletedTasksCount(){
+
+        int count = 0;
+
+        for(Task task : tasks){
+            if(task.isCompleted()){
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public int getPendingTasksCount(){
+
+        int count = 0;
+
+        for(Task task : tasks){
+            if(!task.isCompleted()){
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public int getTotalTasksCount(){
+        return tasks.size();
+    }
 }

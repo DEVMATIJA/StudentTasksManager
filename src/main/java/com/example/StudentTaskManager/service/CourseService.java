@@ -33,4 +33,8 @@ public class CourseService {
     public void addCourse(Course course){
         courses.add(course);
     }
+
+    public int getTotalCoursesCount(){
+        return courses.size();
+    }
 }
