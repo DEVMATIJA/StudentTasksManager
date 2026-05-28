@@ -79,4 +79,25 @@ public class TaskService {
     public int getTotalTasksCount(){
         return tasks.size();
     }
+
+    public Task getTaskById(Long id){
+        for(Task task : tasks){
+            if(task.getId().equals(id)){
+                return task;
+            }
+        }
+        return null;
+    }
+
+    public void updateTask(Task updatedTask){
+        for(Task task : tasks) {
+            if(task.getId().equals(updatedTask.getId())){
+                task.setTitle(updatedTask.getTitle());
+                task.setDescription(updatedTask.getDescription());
+                task.setCompleted(updatedTask.isCompleted());
+                break;
+            }
+        }
+    }
+
 }

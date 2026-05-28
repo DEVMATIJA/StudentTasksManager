@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Task</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/">Home</a>
+    <a href="/tasks">Tasks</a>
+    <a href="/courses">Courses</a>
+    <a href="/statistics">Statistics</a>
+</div>
+
+<h1>Edit Task</h1>
+
+<form th:action="@{/tasks/edit}" th:object="${task}" method="post">
+
+    <input type="hidden" th:field="*{id}">
+
+    <label>Title:</label>
+    <input type="text" th:field="*{title}">
+    <p th:if="${#fields.hasErrors('title')}"
+       th:errors="*{title}"
+       style="color:red"></p>
+
+    <br>
+
+    <label>Description:</label>
+    <input type="text" th:field="*{description}">
+    <p th:if="${#fields.hasErrors('description')}"
+       th:errors="*{description}"
+       style="color:red"></p>
+
+    <br>
+
+    <label>Completed:</label>
+    <input type="checkbox" th:field="*{completed}">
+
+    <br><br>
+
+    <button type="submit">Update Task</button>
+
+</form>
+
+<br>
+
+<a href="/tasks">Back to tasks</a>
+
+</body>
+</html>

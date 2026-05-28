@@ -33,6 +33,8 @@
         <td th:text="${task.completed}"></td>
 
         <td>
+            <a th:href="@{/tasks/edit/{id}(id=${task.id})}">Edit</a>
+            |
             <a th:href="@{/tasks/complete/{id}(id=${task.id})}">Complete</a>
             |
             <a th:href="@{/tasks/delete/{id}(id=${task.id})}">Delete</a>
