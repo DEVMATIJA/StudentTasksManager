@@ -1,10 +1,15 @@
 package com.example.StudentTaskManager.model;
+import jakarta.validation.constraints.NotBlank;
 
 public class Task {
 
     private Long id;
+    @NotBlank(message = "Title is required")
     private String title;
+
+    @NotBlank(message = "Description is required")
     private String description;
+
     private boolean completed;
 
     public Task() {

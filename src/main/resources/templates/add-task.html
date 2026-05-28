@@ -13,9 +13,17 @@
     <input type="text" th:field="*{title}">
     <br><br>
 
+    <p th:if="${#fields.hasErrors('title')}"
+       th:errors="*{title}"
+       style="color:red"></p>
+
     <label>Description:</label>
     <input type="text" th:field="*{description}">
     <br><br>
+
+    <p th:if="${#fields.hasErrors('description')}"
+       th:errors="*{description}"
+       style="color:red"></p>
 
     <label>Completed:</label>
     <input type="checkbox" th:field="*{completed}">

@@ -10,6 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import jakarta.validation.Valid;
+import org.springframework.validation.BindingResult;
+
 
 @Controller
 public class TaskController {
@@ -29,8 +32,13 @@ public class TaskController {
         return "add-task";
     }
 
-    @PostMapping("/task/add")
-    public String addTask(Task task){
+    @PostMapping("/tasks/add")
+    public String addTask(@Valid Task task, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "add-task";
+        }
+
         taskService.addTask(task);
         return "redirect:/tasks";
     }
@@ -46,5 +54,6 @@ public class TaskController {
         taskService.deleteTask(id);
         return "redirect:/tasks";
     }
+
 
 }
