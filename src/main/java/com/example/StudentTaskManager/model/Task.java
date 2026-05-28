@@ -6,7 +6,7 @@ public class Task {
     private Long id;
     @NotBlank(message = "Title is required")
     private String title;
-
+    private String category;
     @NotBlank(message = "Description is required")
     private String description;
 
@@ -15,10 +15,11 @@ public class Task {
     public Task() {
     }
 
-    public Task(Long id, String title, String description, boolean completed) {
+    public Task(Long id, String title, String description, String category, boolean completed) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.category = category;
         this.completed = completed;
     }
 
@@ -52,5 +53,13 @@ public class Task {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

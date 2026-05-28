@@ -32,6 +32,12 @@
     <p th:if="${#fields.hasErrors('description')}"
        th:errors="*{description}"
        style="color:red"></p>
+    <br>
+    <label>Category:</label>
+    <select th:field="*{category}">
+        <option value="">Select category</option>
+        <option th:each="category : ${categories}" th:value="${category}" th:text="${category}"></option>
+    </select>
 
     <br>
 

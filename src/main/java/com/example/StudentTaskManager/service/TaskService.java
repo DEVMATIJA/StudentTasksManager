@@ -11,6 +11,7 @@ import java.util.List;
 public class TaskService {
 
     private List<Task> tasks = new ArrayList<>();
+    private Long nextId = 3L;
 
     @PostConstruct
     public void init(){
@@ -19,6 +20,7 @@ public class TaskService {
                 1L,
                 "Finish Spring project",
                 "Complete MVC application",
+                "Project",
                 false
         ));
 
@@ -26,6 +28,7 @@ public class TaskService {
            2L,
            "Study Thymeleaf",
            "Learn Template engine basics",
+           "Study",
            true
         ));
     }
@@ -35,6 +38,8 @@ public class TaskService {
     }
 
     public void addTask(Task task){
+        task.setId(nextId);
+        nextId++;
         tasks.add(task);
     }
 
@@ -94,10 +99,23 @@ public class TaskService {
             if(task.getId().equals(updatedTask.getId())){
                 task.setTitle(updatedTask.getTitle());
                 task.setDescription(updatedTask.getDescription());
+                task.setCategory(updatedTask.getCategory());
                 task.setCompleted(updatedTask.isCompleted());
                 break;
             }
         }
+    }
+
+    public List<String> getCategories() {
+        List<String> categories = new ArrayList<>();
+
+        categories.add("Homework");
+        categories.add("Exam");
+        categories.add("Project");
+        categories.add("Seminar");
+        categories.add("Study");
+
+        return categories;
     }
 
 }

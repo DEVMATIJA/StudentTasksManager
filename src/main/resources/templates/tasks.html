@@ -18,6 +18,7 @@
         <th>Id</th>
         <th>Title</th>
         <th>Description</th>
+        <th>Category</th>
         <th>Completed</th>
         <th>Actions</th>
     </tr>
@@ -27,6 +28,8 @@
         <td th:text="${task.id}"></td>
 
         <td th:text="${task.title}"></td>
+
+        <td th:text="${task.category}"></td>
 
         <td th:text="${task.description}"></td>
 
